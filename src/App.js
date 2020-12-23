@@ -3,10 +3,9 @@ import styled from 'styled-components';
 import GlobalStyle from './constants/globalStyle';
 import { HeroListPage, HeroProfilePage } from './pages';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { heros, heroPoint } from './fakeData';
 
 const Root = styled.div`
-  padding: 20px 100px;
+  padding: 20px 60px;
   min-height: 100vh;
   width: 100%;
   background: linear-gradient(#64337f, #000);
@@ -17,12 +16,9 @@ function App() {
     <Root>
       <GlobalStyle />
       <BrowserRouter>
-        <HeroListPage heros={heros} />
-        <Routes basename="/heroes">
-          <Route
-            path={'/:heroId'}
-            element={<HeroProfilePage heroPoint={heroPoint} />}
-          />
+        <HeroListPage />
+        <Routes basename='/heroes'>
+          <Route path={'/:heroId'} element={<HeroProfilePage />} />
         </Routes>
       </BrowserRouter>
     </Root>

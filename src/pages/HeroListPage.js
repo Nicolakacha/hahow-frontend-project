@@ -1,5 +1,7 @@
 import styled from 'styled-components';
+import { useEffect } from 'react';
 import { HeroCard } from '../components';
+import useHero from '../hooks/useHero';
 
 const HeroListWrapper = styled.div`
   display: grid;
@@ -13,11 +15,21 @@ const HeroListWrapper = styled.div`
   box-shadow: 5px 5px 15px 5px #000000;
 `;
 
-const HeroListPage = ({ heros }) => {
-  console.log('HeroList');
+const ErrorMessage = styled.div`
+  font-size: 24px;
+  color: red;
+`;
+
+const HeroListPage = () => {
+  const { heros, errorMessage, handleGetHeros } = useHero();
+  useEffect(() => handleGetHeros(), []);
   return (
     <HeroListWrapper>
-      {heros && heros.map((hero) => <HeroCard key={hero.id} hero={hero} />)}
+      {errorMessage === 'Fail to Load' ? (
+        <ErrorMessage>{errorMessage}</ErrorMessage>
+      ) : (
+        heros.map((hero) => <HeroCard key={hero.id} hero={hero} />)
+      )}
     </HeroListWrapper>
   );
 };

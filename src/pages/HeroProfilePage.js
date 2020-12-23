@@ -1,7 +1,9 @@
+import { useEffect } from 'react';
 import styled from 'styled-components';
-import { useParams } from 'react-router-dom';
 import { MEDIA_QUERY_MD } from '../constants/breakpoint';
+import { useParams } from 'react-router-dom';
 import { AbilityBox, ActionButton } from '../components';
+import useHero from '../hooks/useHero';
 
 const HeroPageWrapper = styled.div`
   margin: 20px auto 0;
@@ -53,25 +55,58 @@ const HeroInfoRightColumn = styled.div`
 const Description = styled.div``;
 
 const Message = styled.div`
-  color: red;
+  margin-bottom: 5px;
+  color: white;
+  font-weight: 800;
 `;
 
-const HeroProfilePage = ({ heroPoint }) => {
+const ErrorMessage = styled(Message)`
+  margin-bottom: 5px;
+  color: red;
+  font-weight: 800;
+`;
+
+const HeroProfilePage = () => {
   const { heroId } = useParams();
+  const {
+    heroProfile,
+    errorMessage,
+    message,
+    lastPoints,
+    handleGetHeroProfile,
+    handlePlusPoint,
+    handleMinusPoint,
+    handleSaveProfile,
+    resetMessage,
+  } = useHero();
+  useEffect(() => {
+    handleGetHeroProfile(heroId);
+    resetMessage();
+  }, [heroId]);
+
   return (
     <HeroPageWrapper>
-      <HeroName>Hero Profile Page {heroId}</HeroName>
+      <HeroName>Hero Profile Page</HeroName>
       <HeroInfo>
         <HeroInfoLeftColumn>
-          {Object.entries(heroPoint).map(([abilityName, abilityPoint]) => (
-            <AbilityBox abilityName={abilityName} abilityPoint={abilityPoint} />
+          {Object.entries(heroProfile).map(([abilityName, abilityPoint]) => (
+            <AbilityBox
+              key={abilityName}
+              abilityName={abilityName}
+              abilityPoint={abilityPoint}
+              handlePlusPoint={handlePlusPoint}
+              handleMinusPoint={handleMinusPoint}
+            />
           ))}
         </HeroInfoLeftColumn>
 
         <HeroInfoRightColumn>
-          <Message>出現錯誤</Message>
-          <Description>剩餘點數：30</Description>
-          <ActionButton>儲存</ActionButton>
+          {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
+          {message && <Message>{message}</Message>}
+          <Description>剩餘點數：{lastPoints}</Description>
+          <ActionButton onClick={() => handleSaveProfile(heroId, heroProfile)}>
+            儲存
+          </ActionButton>
         </HeroInfoRightColumn>
       </HeroInfo>
     </HeroPageWrapper>

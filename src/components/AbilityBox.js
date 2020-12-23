@@ -27,14 +27,23 @@ const Point = styled.div`
   font-size: 22px;
 `;
 
-const AbilityBox = ({ abilityName, abilityPoint }) => {
+const AbilityBox = ({
+  abilityName,
+  abilityPoint,
+  handlePlusPoint,
+  handleMinusPoint,
+}) => {
   return (
     <AbilityWrapper>
       <AbilityTitle>{abilityName}</AbilityTitle>
       <PointCounter>
-        <CounterButton>➕</CounterButton>
+        <CounterButton onClick={() => handlePlusPoint(abilityName)}>
+          ➕
+        </CounterButton>
         <Point>{abilityPoint}</Point>
-        <CounterButton>➖</CounterButton>
+        <CounterButton onClick={() => handleMinusPoint(abilityName)}>
+          ➖
+        </CounterButton>
       </PointCounter>
     </AbilityWrapper>
   );
