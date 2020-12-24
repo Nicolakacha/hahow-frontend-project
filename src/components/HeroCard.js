@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 const HeroCardWrapper = styled(NavLink)`
   padding: 10px;
@@ -11,15 +11,19 @@ const HeroCardWrapper = styled(NavLink)`
   &.active,
   :hover {
     transition: all linear 0.2s;
-    filter: brightness(1.15);
+    filter: brightness(1.5);
     & img {
       transition: all linear 0.2s;
       transform: translateX(-5px);
+    }
+    & h1 {
+      color: #ffd700;
     }
   }
 `;
 
 const HeroName = styled.h1`
+  padding: 15px 0;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: white;

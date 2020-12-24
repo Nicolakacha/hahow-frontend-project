@@ -14,13 +14,6 @@ const HeroPageWrapper = styled.div`
   box-shadow: 5px 5px 15px 5px #000000;
 `;
 
-const HeroName = styled.h2`
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 24px;
-`;
-
 const HeroInfo = styled.div`
   display: flex;
   flex-direction: column;
@@ -86,7 +79,6 @@ const HeroProfilePage = () => {
 
   return (
     <HeroPageWrapper>
-      <HeroName>Hero Profile Page</HeroName>
       <HeroInfo>
         <HeroInfoLeftColumn>
           {Object.entries(heroProfile).map(([abilityName, abilityPoint]) => (
