@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/hahow-frontend-project/static/js/main.023c14fa.chunk.js",
-    "main.js.map": "/hahow-frontend-project/static/js/main.023c14fa.chunk.js.map",
+    "main.js": "/hahow-frontend-project/static/js/main.d15e5e4e.chunk.js",
+    "main.js.map": "/hahow-frontend-project/static/js/main.d15e5e4e.chunk.js.map",
     "runtime-main.js": "/hahow-frontend-project/static/js/runtime-main.d7872dc4.js",
     "runtime-main.js.map": "/hahow-frontend-project/static/js/runtime-main.d7872dc4.js.map",
     "static/js/2.7f74c330.chunk.js": "/hahow-frontend-project/static/js/2.7f74c330.chunk.js",
@@ -12,6 +12,6 @@
   "entrypoints": [
     "static/js/runtime-main.d7872dc4.js",
     "static/js/2.7f74c330.chunk.js",
-    "static/js/main.023c14fa.chunk.js"
+    "static/js/main.d15e5e4e.chunk.js"
   ]
 }
