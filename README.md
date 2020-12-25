@@ -25,6 +25,7 @@
 
 [GitHub Page Demo](https://nicolakacha.github.io/hahow-frontend-project/heroes)
 
+![](https://i.imgur.com/PuMC92d.jpg)
 
 ## 專案架構
 
