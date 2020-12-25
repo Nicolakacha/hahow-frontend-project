@@ -43,7 +43,7 @@ const HeroCardContent = styled.div``;
 
 const HeroCard = ({ hero }) => {
   return (
-    <HeroCardWrapper to={`/heroes/${hero.id}`}>
+    <HeroCardWrapper to={`/hahow-frontend-project/heroes/${hero.id}`}>
       <HeroCardContent>
         <HeroPictureContainer>
           <HeroPicture src={hero.image} />

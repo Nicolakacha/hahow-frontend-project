@@ -22,7 +22,10 @@ const ErrorMessage = styled.div`
 
 const HeroListPage = () => {
   const { heros, errorMessage, handleGetHeros } = useHero();
+
+  // should get heros data once page is mounted
   useEffect(() => handleGetHeros(), []);
+  
   return (
     <HeroListWrapper>
       {errorMessage === 'Fail to Load' ? (

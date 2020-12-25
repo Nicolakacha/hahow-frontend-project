@@ -21,13 +21,15 @@ export default function useHero() {
   const message = useSelector(selectMessage);
   const errorMessage = useSelector(selectErrorMessage);
   const sumPoints = useSelector(selectSumPoints);
-
+  
+  // the points that heros has currently.
   const currentPoints = Object.values(heroProfile).reduce(
     (acc, cur) => acc + cur
   );
-
+  
+  // count last points 
   const lastPoints = sumPoints - currentPoints;
-
+  
   const handleGetHeros = () => {
     dispatch(getHeros());
   };

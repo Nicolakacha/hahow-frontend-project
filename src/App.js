@@ -17,7 +17,7 @@ function App() {
       <GlobalStyle />
       <BrowserRouter>
         <HeroListPage />
-        <Routes basename='/heroes'>
+        <Routes basename='hahow-frontend-project/heroes'>
           <Route path={'/:heroId'} element={<HeroProfilePage />} />
         </Routes>
       </BrowserRouter>

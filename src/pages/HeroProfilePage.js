@@ -72,6 +72,8 @@ const HeroProfilePage = () => {
     handleSaveProfile,
     resetMessage,
   } = useHero();
+
+  // should get hero profile and reset message once page is mounted
   useEffect(() => {
     handleGetHeroProfile(heroId);
     resetMessage();
@@ -93,8 +95,8 @@ const HeroProfilePage = () => {
         </HeroInfoLeftColumn>
 
         <HeroInfoRightColumn>
-          {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
           {message && <Message>{message}</Message>}
+          {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
           <Description>剩餘點數：{lastPoints}</Description>
           <ActionButton onClick={() => handleSaveProfile(heroId, heroProfile)}>
             儲存
